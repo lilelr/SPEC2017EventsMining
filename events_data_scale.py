@@ -21,6 +21,7 @@ for line in set_events:
     first_line += (',' + line_items[1])
 set_events.close()
 first_line += (',IPC')
+
 print(first_line)
 
 input_file_name = "namd_r_base.myt_it-65_"
