@@ -98,7 +98,6 @@ input_path = "/Users/yuxiao/Lab/projects/SPEC-CPU2017/508-name-d/namd_r_base.myt
 #         else:
 #             event_4 = temp_line_items[1]
 #
-#
 #         # print(scale_data)
 #         final_list[start_index] = str(event_1)
 #         final_list[start_index + 1] = str(event_2)
