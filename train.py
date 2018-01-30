@@ -91,7 +91,7 @@ class TRAIN(object):
         Importances = []
         Indices = []
         Events_Name = []
-        Itera = 1
+        Itera = 3
         for _ in range(Itera):
             print('the %s th training' % (_ + 1))
             assert len(X) == len(y)
