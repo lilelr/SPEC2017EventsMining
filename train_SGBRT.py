@@ -10,7 +10,10 @@ class SGBRT(object):
     def __init__(self):
         self.a = None
         self.data_path = '/Users/yuxiao/Lab/projects/SPEC-CPU2017/508-name-d/namd_r_base.myt-result/'
-        self.algorithm_name = 'it-65-L2-norm'
+        self.algorithm_name = 'it-95-L2-norm'
+
+        # self.algorithm_name = 'it-95'
+
         # self.data_path = 'F:/linlingfeng/codes/python/perf_DATA/result/big_table'
         # self.algorithm_name = 'MinMax_TriangleCount'
 
@@ -29,7 +32,7 @@ class SGBRT(object):
         Importances = []
         Indices = []
         Events_Name = []
-        Itera = 10
+        Itera = 14
         for _ in range(Itera):
             print('the %s th training' % (_ + 1))
             assert len(X) == len(y)
@@ -60,9 +63,9 @@ class SGBRT(object):
             Events_Name.append(events_Name)
             Importances.append(importanceS)
             if _ < Itera-1:
-                """ 每一轮训练，删除最不重要的10个事件"""
+                """ 每一轮训练，删除最不重要的16个事件"""
                 X = pd.DataFrame(X)
-                X[X.columns[indices[-6*(_+1):]]] = 0
+                X[X.columns[indices[-16*(_+1):]]] = 0
                 X = np.array(X)
             print('Error: ', err*100, '%')
 
@@ -78,7 +81,9 @@ class SGBRT(object):
         return res
 
     def build(self):
-        a = self.train_sgbrt()
+        result = self.train_sgbrt()
+        print(result)
+        print(result['result'][0])
 
 if __name__ == '__main__':
     sgbrt = SGBRT()
